@@ -1,0 +1,6 @@
+[book]
+authors = ["Ondrej Janus"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Of Dice and Heroes"
