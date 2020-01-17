@@ -1,6 +1,6 @@
 [book]
 authors = ["Ondrej Janus"]
-language = "en"
+language = "cz"
 multilingual = false
 src = "src"
-title = "Of Dice and Heroes"
+title = "O kostkách a lidech"
