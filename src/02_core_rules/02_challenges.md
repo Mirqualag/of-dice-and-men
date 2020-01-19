@@ -23,7 +23,7 @@ Vlastnosti postavy určí, kolik kostek (K6) může hráč použít k překonán
 Každý úkon, který se hráč chystá provést, vypravěč zhodnotí a posoudí jeho obtížnost. Poté mu přiřadí 
 
 
-#Činy a spory
+# Činy a spory
 
 Výzvy mohou mít jednu ze dvou forem; Činy nebo spory.
 Čin je jakýkoliv úkon, který hráč vykoná proti něčemu, co nemůže svévolně odporovat.
