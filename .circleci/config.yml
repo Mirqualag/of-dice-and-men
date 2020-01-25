@@ -15,21 +15,21 @@ jobs:
       - run:
           name: Build with mdbook
           command: mdbook build
+      - run:
+          name: Copy circleci config
+          command: cp -r .circleci ./book
       - persist_to_workspace:
           root: book
           paths:
             - "*"
+            - ".circleci/*"
+            - ".nojekyll"
   deploy:
     docker:
       - image: circleci/rust:latest
     working_directory: ~/checkout
     steps:
       - checkout
-      - run:
-          name: Save CircleCI config
-          command: |
-            cp -r .circleci ..
-            ls -al ..
       - run:
           name: Prepare release branch
           command: |
@@ -41,7 +41,6 @@ jobs:
       - run:
           name: Add CircleCI config
           command: |
-            cp -r ../.circleci .
             ls -al .
             ls -al ./.circleci
       - add_ssh_keys:
