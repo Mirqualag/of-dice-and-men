@@ -9,3 +9,4 @@
   - [Základy boje](combat/core_combat.md)
   - [Bojové hody](combat/combat_rolls.md)
   - [Převaha](combat/dominance.md)
+  - [Finty](combat/techniques.md)
