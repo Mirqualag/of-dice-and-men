@@ -10,3 +10,4 @@
   - [Bojové hody](combat/combat_rolls.md)
   - [Převaha](combat/dominance.md)
   - [Finty](combat/techniques.md)
+  - [Skupinový boj](combat/fighting_groups.md)
