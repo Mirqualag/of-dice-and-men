@@ -8,6 +8,7 @@
 - [Boj](combat.md)
   - [Základy boje](combat/core_combat.md)
   - [Bojové hody](combat/combat_rolls.md)
+  - [Výhody](combat/advantages.md)
   - [Převaha](combat/dominance.md)
   - [Finty](combat/techniques.md)
   - [Skupinový boj](combat/fighting_groups.md)
