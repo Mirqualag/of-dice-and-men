@@ -1,0 +1,77 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/rust:latest
+    steps:
+      - checkout
+      - run:
+          name: Version information
+          command: rustc --version; cargo --version; rustup --version
+      - run:
+          name: Install mdbook
+          command: cargo install mdbook
+      - run:
+          name: Build with mdbook
+          command: mdbook build
+      - run:
+          name: Copy circleci config
+          command: cp -r .circleci ./book
+      - persist_to_workspace:
+          root: book
+          paths:
+            - "*"
+            - ".circleci/*"
+            - ".nojekyll"
+  deploy:
+    docker:
+      - image: circleci/rust:latest
+    working_directory: ~/checkout
+    steps:
+      - checkout
+      - run:
+          name: Prepare release branch
+          command: |
+            git branch -D master
+            git checkout --orphan master
+            git rm -rf .
+            git clean -fxd
+      - attach_workspace:
+          at: .
+      - run:
+          name: Add CircleCI config
+          command: |
+            ls -al .
+            ls -al ./.circleci
+      - add_ssh_keys:
+          fingerprints:
+            - "24:1f:3b:e2:0d:49:4d:3b:46:98:21:69:6d:5d:8e:6f"
+      - deploy:
+          name: Deploy release
+          command: |
+            git config --global user.email $USER_EMAIL
+            git config --global user.name $USER_NAME
+            echo "Commit and push..."
+            git add -fA
+            git status
+            git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+            git push origin master --force
+            echo "Deployed successfully!"
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore:
+                - master
+                - gh-pages
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: devel
