@@ -6,6 +6,7 @@
 - [Tvorba postavy](character_creation.md)
   - [Vlastnosti postavy](character_creation/attributes.md)
 - [Boj](combat.md)
+  - [Pořadí v boji](combat/order.md)
   - [Základy boje](combat/core_combat.md)
   - [Bojové hody](combat/combat_rolls.md)
   - [Výhody](combat/advantages.md)
