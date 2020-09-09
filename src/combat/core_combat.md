@@ -1,1 +1,2 @@
 # Základy Boje
+nebojujem
